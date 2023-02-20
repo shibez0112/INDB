@@ -1,7 +1,16 @@
 const express = require("express");
 const app = express();
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
 const portNumber = 3000;
+
+// Connect to database
+mongoose.set("strictQuery", false);
+mongoose.connect(process.env.MONGO_URL,{useNewUrlParser: true}, () =>{
+    console.log("Connected to database");
+});
+
 
 // Router define
 const movieRouter = require("./routes/movie");
