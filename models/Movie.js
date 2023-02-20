@@ -22,19 +22,19 @@ const movieSchema = new mongoose.Schema({
   },
   director: [
     {
-      id: { type: ObjectID, require: true, ref: 'User' },
+      id: { type: ObjectID, require: true, ref: 'Person' },
       name: { type: String, require: true },
     },
   ],
   writer: [
     {
-      id: { type: ObjectID, require: true, ref: 'User' },
+      id: { type: ObjectID, require: true, ref: 'Person' },
       name: { type: String, require: true },
     },
   ],
   actor: [
     {
-      id: { type: ObjectID, require: true, ref: 'User' },
+      id: { type: ObjectID, require: true, ref: 'Person' },
       name: { type: String, require: true },
     },
   ],
@@ -48,7 +48,7 @@ const movieSchema = new mongoose.Schema({
   },
   review:[
     {
-        reviewerId: {type: ObjectID, require: true, ref: 'User'},
+        reviewerId: {type: ObjectID, require: true, ref: 'Person'},
         name: {type: String, require: true},
         message: {type: String, require: true, min: 1},
         rating: {type: Number, require: true, validate: {
